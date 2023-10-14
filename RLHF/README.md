@@ -1,4 +1,4 @@
-# (Factually Augmented) Reinforcement Learning from Human Feedback
+# (Factually Augmented) RL from Human Feedback
 
 This RLHF codebase is mainly adapted from the [SALMON](https://github.com/Edward-Sun/SALMON) codebase, which is adapted from [AlpacaFarm](https://github.com/tatsu-lab/alpaca_farm) and [QLoRA](https://github.com/artidoro/qlora).
 
