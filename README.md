@@ -27,7 +27,17 @@ LLaVA-RLHF is trained on 8 A100 GPUs with 80GB memory. To train on fewer GPUs, y
 
 The SFT training pipeline is provided in [the SFT directory](./SFT), and the RLHF training pipeline is provided in [the RLHF directory](./RLHF).
 
-## Citation
+## Examples
+
+<div align="center">
+    <img src="https://llava-rlhf.github.io/LLaVA_files/cmp_moto.jpg" alt="Example 1" width="768px">
+</div>
+
+<div align="center">
+    <img src="https://llava-rlhf.github.io/LLaVA_files/cmp_airport.jpg" alt="Example 2" width="768px">
+</div>
+
+## Citations
 
 If you find this repo useful for your research, please consider citing the paper
 
@@ -64,6 +74,6 @@ SALMON:
 }
 ```
 
-### Acknowledgements
+## Acknowledgements
 
 We thank [Meta LLaMA team](https://github.com/facebookresearch/llama), [Standford Alpaca team](https://github.com/tatsu-lab/stanford_alpaca), [Vicuna team](https://github.com/lm-sys/FastChat), [LLaVA team](https://github.com/haotian-liu/LLaVA), [QLoRA team](https://github.com/artidoro/qlora), [Hugging Face PEFT](https://github.com/huggingface/peft), and [AlpacaFarm team](https://github.com/tatsu-lab/alpaca_farm) for their open-source efforts in democratizing large language models.
