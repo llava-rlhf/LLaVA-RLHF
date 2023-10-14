@@ -7,7 +7,7 @@
 
 <!-- # LLaVA-RLHF -->
 
-## LLaVA-RLHF: Aligning Large Multimodal Models with Factually Augmented RLHF
+# LLaVA-RLHF: Aligning Large Multimodal Models with Factually Augmented RLHF
 
 </div>
 
