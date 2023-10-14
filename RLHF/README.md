@@ -4,7 +4,7 @@ This RLHF codebase is mainly adapted from the [SALMON](https://github.com/Edward
 
 ## 0. Setup
 
-Please refer to [`llava_setup`](../llava_setup) for instructions on how to setup the customized llava package.
+Please refer to [`llava_setup`](../llava_setup) for instructions on how to set up the customized llava package.
 
 Additionally, you can run the following command to make sure the versions of some essential packages are correct:
 
@@ -27,7 +27,7 @@ We first train an [instruction-following reward model](https://arxiv.org/abs/231
 4. Concise: The AI should efficiently address the task or answer the question, communicating the necessary information with brevity and clarity.
 ```
 
-After downloading the SFT model checkpoint from [`LLaVA-RLHF-13b-v1.5-336`](https://huggingface.co/zhiqings/LLaVA-RLHF-13b-v1.5-336), the human preference data from [`LLaVA-Human-Preference-10K`](https://huggingface.co/datasets/zhiqings/LLaVA-Human-Preference-10K), and the image captions from [`LLaVA-RLHF-Data/image_to_caption.json`](https://huggingface.co/datasets/zhiqings/LLaVA-RLHF-Data/tree/main), you can run training script for the reward model:
+After downloading the SFT model checkpoint from [`LLaVA-RLHF-13b-v1.5-336`](https://huggingface.co/zhiqings/LLaVA-RLHF-13b-v1.5-336), the human preference data from [`LLaVA-Human-Preference-10K`](https://huggingface.co/datasets/zhiqings/LLaVA-Human-Preference-10K), and the image captions from [`LLaVA-RLHF-Data/image_to_caption.json`](https://huggingface.co/datasets/zhiqings/LLaVA-RLHF-Data/tree/main), you can run the training script for the reward model:
 
 ```bash
 bash scripts/13b-v1.5-336/train_reward_model.sh
@@ -37,10 +37,10 @@ bash scripts/13b-v1.5-336/train_reward_model.sh
 
 ## 2. Initialize the RL Model
 
-We initialize the LoRA weights of the policy model by fine-tuining the SFT model for one epoch on the combination of:
+We initialize the LoRA weights of the policy model by fine-tuning the SFT model for one epoch on the combination of:
 
 1. Our preference modeling split of the LLaVA data (10k)
-2. A-OKVQA in the CoT fromat (5k)
+2. A-OKVQA in the CoT format (5k)
 
 We provide the processed data in [`LLaVA-RLHF-Data/llava_reward10k-aokvqa5k.json`](https://huggingface.co/datasets/zhiqings/LLaVA-RLHF-Data/tree/main). After downloading the data (and potentially the 7b SFT model checkpoint from [`LLaVA-RLHF-7b-v1.5-224`](https://huggingface.co/zhiqings/LLaVA-RLHF-7b-v1.5-224)), you can run the following script to initialize the policy model:
 
