@@ -1,0 +1,8 @@
+USER: Please evaluate the quality of your last response. There are several dimensions you should consider in your evaluation:
+
+1. Accurate: The AI should provide factual and accurate information from the image, and refrain from making statements that are not supported by the image or inconsistent with the image. {factual_prompt}
+2. Helpful: The AI’s response should precisely serve the user's needs and interests, while grounding the response in the image.
+3. Language Natural: The AI should employ language that flows smoothly and is free from repetitive or awkward constructs.
+4. Concise: The AI should efficiently address the task or answer the question, communicating the necessary information with brevity and clarity.
+
+A good response should be accurate, helpful, language natural, and concise. ASSISTANT: Following your definitions, the quality score of my last response is
