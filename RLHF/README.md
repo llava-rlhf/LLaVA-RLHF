@@ -2,7 +2,7 @@
 
 This RLHF codebase is mainly adapted from the [SALMON](https://github.com/Edward-Sun/SALMON) codebase, which is adapted from [AlpacaFarm](https://github.com/tatsu-lab/alpaca_farm) and [QLoRA](https://github.com/artidoro/qlora).
 
-## Setup
+## 0. Setup
 
 Please refer to [`llava_setup`](../llava_setup) for instructions on how to setup the customized llava package.
 
@@ -16,7 +16,7 @@ pip install transformers==4.33.0
 pip install bitsandbytes==0.41.0
 ```
 
-## Training the Instruction-Following Reward Model
+## 1. Training the Instruction-Following Reward Model
 
 We first train an [instruction-following reward model](https://arxiv.org/abs/2310.05910) based on the [following judging creteria](prompts/reward_prompt.txt):
 
@@ -33,9 +33,9 @@ After downloading the SFT model checkpoint from [`LLaVA-RLHF-13b-v1.5-336`](http
 bash scripts/13b-v1.5-336/train_reward_model.sh
 ```
 
-**Note**: For both 7b and 13b policy models, we use a 13b reward model.
+**Note**: For both 7b and 13b policy models, we use the same 13b reward model. We also provide the pretrained reward model checkpoint at [`LLaVA-RLHF-13b-v1.5-336/rm_lora_adapter_model`](https://huggingface.co/zhiqings/LLaVA-RLHF-13b-v1.5-336).
 
-## Initialize the RL Model
+## 2. Initialize the RL Model
 
 We initialize the LoRA weights of the policy model by fine-tuining the SFT model for one epoch on the combination of:
 
@@ -49,7 +49,7 @@ bash scripts/7b-v1.5-224/initialize_policy_model.sh
 bash scripts/13b-v1.5-336/initialize_policy_model.sh
 ```
 
-## Training the RL Model with PPO
+## 3. Training the RL Model with PPO
 
 The PPO training of the policy model is based on the prompt combination of:
 
