@@ -33,7 +33,7 @@ After downloading the SFT model checkpoint from [`LLaVA-RLHF-13b-v1.5-336`](http
 bash scripts/13b-v1.5-336/train_reward_model.sh
 ```
 
-**Note**: For both 7b and 13b policy models, we use the same 13b reward model. We also provide the pretrained reward model checkpoint at [`LLaVA-RLHF-13b-v1.5-336/rm_lora_adapter_model`](https://huggingface.co/zhiqings/LLaVA-RLHF-13b-v1.5-336).
+**Note**: For both 7b and 13b policy models, we use the same 13b reward model. We also provide the pretrained reward model checkpoint at [`LLaVA-RLHF-13b-v1.5-336/rm_lora_adapter_model`](https://huggingface.co/zhiqings/LLaVA-RLHF-13b-v1.5-336/tree/main/rm_lora_adapter_model).
 
 ## 2. Initialize the RL Model
 
