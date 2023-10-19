@@ -6,16 +6,18 @@ This RLHF codebase is mainly adapted from the [SALMON](https://github.com/Edward
 
 Please refer to [`llava_setup`](../llava_setup) for instructions on how to set up the customized llava package.
 
-Additionally, you can run the following command to make sure the versions of some essential packages are correct:
+Additionally, you **should** run the following command to make sure the versions of some essential packages are correct:
 
 ```bash
-pip install "torch>=2.0.0"
+pip install torch==2.0.1+cu118 torchvision==0.15.2+cu118 torchaudio==2.0.2 --index-url https://download.pytorch.org/whl/cu118
 pip install deepspeed==0.9.3
 pip install peft==0.4.0
 pip install transformers==4.31.0
 pip install bitsandbytes==0.41.0
 pip install datasets
 ```
+
+**Note:** please install Pytorch 2.0.1 following the guidelines [here](https://pytorch.org/get-started/previous-versions/#v201). We found that the flash-attention implementation in the newest Pytorch Stable (2.1.0) could lead to buggy results. The codebase is tested with `torch==2.0.1+cu118`.
 
 ## 1. Training the Instruction-Following Reward Model
 
