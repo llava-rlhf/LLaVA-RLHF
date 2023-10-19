@@ -87,7 +87,6 @@ torchrun \
     --query_len 128 \
     --response_len 896 \
     --noptepochs $NOPTEPOCHS \
-    --version $PROMPT_VERSION \
     --image_folder $DATA_DIR/coco/train2017 \
     --vision_tower $VISION_TOWER \
     --mm_vision_select_layer -2 \
