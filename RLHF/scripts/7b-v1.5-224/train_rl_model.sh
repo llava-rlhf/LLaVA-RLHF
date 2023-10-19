@@ -12,8 +12,8 @@ export OMP_NUM_THREADS=8
 export TRANSFORMERS_OFFLINE=1
 
 # MODEL CONFIG
-POLICY_BASE_MODEL_NAME=LLaVA-RLHF-13b-v1.5-336/sft_model
-RM_BASE_MODEL_NAME=LLaVA-RLHF-7b-v1.5-224/sft_model
+POLICY_BASE_MODEL_NAME=LLaVA-RLHF-7b-v1.5-224/sft_model
+RM_BASE_MODEL_NAME=LLaVA-RLHF-13b-v1.5-336/sft_model
 
 POLICY_LORA=LLaVA-RL-INIT-7b-v1.5-224-lora-padding/lora_default
 RM_LORA=LLaVA-Fact-RM-13b-v1.5-336-lora-padding/checkpoint-200  # we use early stopping
