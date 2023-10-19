@@ -335,12 +335,15 @@ class PPOTrainer(RLTrainer):
                     image_ids = []
                     for i in range(len(sequences)):
                         image_file = str(image_file_ids[i].item()).zfill(12) + ".jpg"
-                        caption_type = caption_types[i].item()
+                        caption_type = AnswerType(caption_types[i].item())
                         if caption_type in [AnswerType.GENERAL, AnswerType.NO_IN_YESNO, AnswerType.YES_IN_YESNO]:
                             image_id = image_file
                         elif caption_type in [AnswerType.A_IN_ABCD, AnswerType.B_IN_ABCD, AnswerType.C_IN_ABCD, AnswerType.D_IN_ABCD]:
                             image_id = "aok_" + image_file
                         else:
+                            print(caption_type)
+                            print([AnswerType.GENERAL, AnswerType.NO_IN_YESNO, AnswerType.YES_IN_YESNO])
+                            print([AnswerType.A_IN_ABCD, AnswerType.B_IN_ABCD, AnswerType.C_IN_ABCD, AnswerType.D_IN_ABCD])
                             raise NotImplementedError
                         image_ids.append(image_id)
 
