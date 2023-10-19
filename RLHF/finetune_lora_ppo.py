@@ -30,7 +30,7 @@ except:
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 from data_utils.data_utils_ppo import make_rl_data_module
-from qlora_utils import (
+from lora_utils import (
     get_last_checkpoint,
     DEFAULT_PAD_TOKEN,
 )
