@@ -11,7 +11,6 @@ MODEL_QLORA_BASE=LLaVA-RL-Fact-RLHF-13b-v1.5-336-lora-padding
 MODEL_SUFFIX=$MODEL_QLORA_BASE
 
 python model_vqa.py \
-    --short_eval True \
     --model-path ./checkpoints/${MODEL_BASE}/ \
     --use-qlora True --qlora-path ./checkpoints/${MODEL_QLORA_BASE} \
     --question-file \
