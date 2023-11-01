@@ -136,8 +136,9 @@ def eval_model(args):
         )
 
         image = Image.open(os.path.join(args.image_folder, image_file))
-        if args.image_aspect_ratio == 'pad':
-            image = image.convert('RGB')
+        if args.image_aspect_ratio == "pad":
+            image = image.convert("RGB")
+
             def expand2square(pil_img, background_color):
                 # print(background_color)
                 width, height = pil_img.size
@@ -151,7 +152,10 @@ def eval_model(args):
                     result = Image.new(pil_img.mode, (height, height), background_color)
                     result.paste(pil_img, ((height - width) // 2, 0))
                     return result
-            image = expand2square(image, tuple(int(x*255) for x in image_processor.image_mean))
+
+            image = expand2square(
+                image, tuple(int(x * 255) for x in image_processor.image_mean)
+            )
         image_tensor = image_processor.preprocess(image, return_tensors="pt")[
             "pixel_values"
         ][0]
@@ -166,8 +170,8 @@ def eval_model(args):
             output_ids = model.generate(
                 input_ids=input_ids,
                 images=image_tensor.unsqueeze(0).to(dtype=compute_dtype).cuda(),
-                do_sample=True,
-                temperature=args.temperature,
+                do_sample=True if args.temperature > 0 else False,
+                temperature=args.temperature if args.temperature > 0 else 1.0,
                 top_p=args.top_p,
                 num_beams=args.num_beams,
                 # no_repeat_ngram_size=3,
@@ -226,8 +230,12 @@ if __name__ == "__main__":
     parser.add_argument("--use-qlora", type=bool, default=False)
     parser.add_argument("--qlora-path", type=str, default="")
     parser.add_argument("--short_eval", type=bool, default=False)
-    parser.add_argument("--image_aspect_ratio", type=str, default='pad')
-    parser.add_argument("--test-prompt", type=str, default='\nAnswer the question using a single word or phrase.')
+    parser.add_argument("--image_aspect_ratio", type=str, default="pad")
+    parser.add_argument(
+        "--test-prompt",
+        type=str,
+        default="\nAnswer the question using a single word or phrase.",
+    )
     args = parser.parse_args()
 
     if os.path.exists(args.answers_file):
